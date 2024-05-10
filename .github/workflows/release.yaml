@@ -62,6 +62,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_KEY }}
-          repository: itatm/ad2image
+          repository: itatm/pentaho-carte
           readme-filepath: ./IMAGE_README.md
           short-description: ${{ github.event.repository.description }}
