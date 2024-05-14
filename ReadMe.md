@@ -11,6 +11,8 @@
 
 **pentaho-carte** provides a Pentaho Data Integration installation and starts the Pentaho Carte Server.
 
+Current supported Pentaho Version: 9.3.0.0-428
+
 ## Documentation
 
 ### Running as a container (standalone)
