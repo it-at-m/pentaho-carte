@@ -3,7 +3,7 @@
       FROM registry.access.redhat.com/ubi9/openjdk-11:latest
 
       LABEL org.opencontainers.image.title="Pentaho"
-      LABEL org.opencontainers.image.url="https://git.muenchen.de/isi/isi-pentaho-image"
+      LABEL org.opencontainers.image.url="https://github.com/it-at-m/penthao-carte"
       LABEL org.opencontainers.image.authors="tiago.kocevar albrecht.schaenzel"
       LABEL org.opencontainers.image.description="Image fuer Pentaho"
 
