@@ -25,7 +25,7 @@ docker run -d -p 8080:8080 --name pentaho-carte itatm/pentaho-carte:lastest
 
 We will provide a Helm Chart for *pentaho-carte* soon under [provided Helm chart][helm-chart-github].
 
-# If you want to deploy pentaho-carte on a Kubernetes cluster, you can use the [provided Helm chart][helm-chart-github].
+<!-- If you want to deploy pentaho-carte on a Kubernetes cluster, you can use the [provided Helm chart][helm-chart-github].-->
 
 ### Configuration
 
