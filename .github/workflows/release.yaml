@@ -7,12 +7,12 @@ on:
         description: "Branch to release from ?"
         required: true
         default: "main"
-#      release-version:
-#        description: "Release version ?"
-#        required: true
-#      release-tag:
-#        description: "Release tag ?"
-#        required: true
+      release-version:
+        description: "Release version ?"
+        required: true
+      release-tag:
+        description: "Release tag ?"
+        required: true
 #      development-version:
 #        description: "Next Development version ?"
 #        required: true
