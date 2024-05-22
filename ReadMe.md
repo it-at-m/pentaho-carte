@@ -11,6 +11,8 @@
 
 **pentaho-carte** provides a Pentaho Data Integration installation and starts the Pentaho Carte Server.
 
+We create our own PDI Carte Server image because [Hitachi Vantara doesn’t provide an out of the box container image.](https://community.hitachivantara.com/blogs/archive-user/2021/09/09/pentaho-data-integration-on-kubernetes)
+
 Current supported Pentaho Version: 9.3.0.0-428
 
 ## Documentation
