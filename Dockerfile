@@ -31,6 +31,10 @@
       RUN chmod 775 ${KETTLE_HOME}
       RUN chmod 755 ${KETTLE_HOME}/*.sh
 
+      # Set User and Password for Carte Server access
+      ENV KETTLE_USER=${PENTAHO_USER}
+      ENV KETTLE_PASSWORD=${PENTAHO_PASSWORD}
+
       # Start Carte Server
       RUN cd ${KETTLE_HOME}
-      CMD ${KETTLE_HOME}/carte.sh ${HOSTNAME} ${CARTE_PORT} -u ${PENTAHO_USER} -p ${PENTAHO_PASSWORD}
+      CMD ${KETTLE_HOME}/carte.sh ${HOSTNAME} ${CARTE_PORT}

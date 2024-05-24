@@ -19,10 +19,10 @@ Current supported Pentaho Version: 9.3.0.0-428
 
 ### Running as a container (standalone)
 
-You can use the provided official Docker image [itatm/pentaho-carte](https://hub.docker.com/r/itatm/pentaho-carte) to run **pentaho-carte** as a standalone application.
+You can use the provided official Docker image [itatm/pentaho-carte](https://github.com/it-at-m/pentaho-carte/pkgs/container/pentaho-carte) to run **pentaho-carte** as a standalone application.
 
 ```sh
-docker run -d -p 8080:8080 --name pentaho-carte itatm/pentaho-carte:lastest
+docker run -d -p 8080:8080 --env=PENTAHO_USER=cluster --env=PENTAHO_PASSWORD=cluster --name pentaho-carte ghcr.io/it-at-m/pentaho-carte:0.0.1-snapshot
 ```
 
 ### Deploying on Kubernetes using a Helm chart
@@ -35,11 +35,10 @@ We will provide a Helm Chart for *pentaho-carte* soon under [provided Helm chart
 
 pentaho-carte uses the following environment variables to configure the Pentaho Carte Server:
 
-| Environment variable | Description                             | Default value                                                                                                                                              | Required |
-|----------------------|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
-| `CARTE_PORT`         | Port to access the Pentaho Carte Server | 8080                                                                                                                                                       | yes      |
-| `PENTAHO_USER`       | Pentaho User                            | Default Pentaho User (see [Carte User Documentation](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372704158/Carte+User+Documentation))       | yes      |  
-| `PENTAHO_PASSWORD`   | Pentaho User's Password                 | Default Pentaho User's Password [Carte User Documentation](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372704158/Carte+User+Documentation)) | yes      |  
+| Environment variable | Description                             | Default value | Required |
+|----------------------|-----------------------------------------|---------------| -------- |
+| `PENTAHO_USER`       | Pentaho User                            | ./.           | yes      |  
+| `PENTAHO_PASSWORD`   | Pentaho User's Password                 | ./.           | yes      |  
 
 ## Contributing
 
