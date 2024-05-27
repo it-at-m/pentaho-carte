@@ -25,6 +25,8 @@ You can use the provided official Docker image [itatm/pentaho-carte](https://git
 docker run -d -p 8080:8080 --env=PENTAHO_USER=cluster --env=PENTAHO_PASSWORD=cluster --name pentaho-carte ghcr.io/it-at-m/pentaho-carte:0.0.1-snapshot
 ```
 
+Use Pentaho Carte Server's  [default user and password](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372704158/Carte+User+Documentation#CarteUserDocumentation-Security) to gain control. 
+
 ### Deploying on Kubernetes using a Helm chart
 
 We will provide a Helm Chart for *pentaho-carte* soon under [provided Helm chart][helm-chart-github].
@@ -33,12 +35,17 @@ We will provide a Helm Chart for *pentaho-carte* soon under [provided Helm chart
 
 ### Configuration
 
-pentaho-carte uses the following environment variables to configure the Pentaho Carte Server:
+pentaho-carte doesn't use any environment variables.
 
-| Environment variable | Description                             | Default value | Required |
-|----------------------|-----------------------------------------|---------------| -------- |
-| `PENTAHO_USER`       | Pentaho User                            | ./.           | yes      |  
-| `PENTAHO_PASSWORD`   | Pentaho User's Password                 | ./.           | yes      |  
+#### Change Pentaho Carte Server's username and password
+
+To change the Pentaho Carte Server's username and password follow these steps:
+
+1. Create a file named `kettle.pwd` which contains Pentaho Carte Server's username and password. Please consult [Carte User Documentation](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372704158/Carte+User+Documentation#CarteUserDocumentation-Security) how to configure `kettle.pwd`.
+2. Copy (see [docker cp](https://docs.docker.com/reference/cli/docker/container/cp/) command) `kettle.pwd` to location
+   `/home/default/pentaho/data-integration/.kettle/kettle.pwd`, e.g.: <br/><br/>
+```docker cp kettle.pwd pentaho-carte:/home/default/pentaho/data-integration/.kettle/kettle.pwd```<br/><br/>
+3. Restart pentaho-carte
 
 ## Contributing
 
