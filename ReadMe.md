@@ -17,6 +17,8 @@ Current supported Pentaho Version: 9.3.0.0-428
 
 ## Documentation
 
+For a detailed documentation auf Pentaho Data Integration see [Pentaho Community Wiki](https://pentaho-public.atlassian.net/wiki/spaces/EAI/overview).
+
 ### Running as a container (standalone)
 
 You can use the provided official Docker image [itatm/pentaho-carte](https://github.com/it-at-m/pentaho-carte/pkgs/container/pentaho-carte) to run **pentaho-carte** as a standalone application.
