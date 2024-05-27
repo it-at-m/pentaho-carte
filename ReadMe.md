@@ -24,7 +24,7 @@ For a detailed documentation auf Pentaho Data Integration see [Pentaho Community
 You can use the provided official Docker image [itatm/pentaho-carte](https://github.com/it-at-m/pentaho-carte/pkgs/container/pentaho-carte) to run **pentaho-carte** as a standalone application.
 
 ```sh
-docker run -d -p 8080:8080 --env=PENTAHO_USER=cluster --env=PENTAHO_PASSWORD=cluster --name pentaho-carte ghcr.io/it-at-m/pentaho-carte:0.0.1-snapshot
+docker run -d -p 8080:8080 --env=PENTAHO_USER=cluster --env=PENTAHO_PASSWORD=cluster --name pentaho-carte ghcr.io/it-at-m/pentaho-carte:0.0.2
 ```
 
 Use Pentaho Carte Server's  [default user and password](https://pentaho-public.atlassian.net/wiki/spaces/EAI/pages/372704158/Carte+User+Documentation#CarteUserDocumentation-Security) to gain control. 
