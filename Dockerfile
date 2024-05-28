@@ -49,7 +49,7 @@
       COPY --from=install_unpack --chmod=775 ${PENTAHO_INSTALL}/data-integration/ ${KETTLE_HOME}/
 
       # Make PDI runnable
-      RUN chmod 755 $PENTAHO_INSTALL/data-integration/*.sh
+      RUN chmod 755 ${KETTLE_HOME}/*.sh
 
       # Start Carte Server
       RUN cd ${KETTLE_HOME}
