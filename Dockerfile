@@ -23,7 +23,7 @@
       ##################################################################################################
       # Second layer: Here is where we create the final image                                          #
       ##################################################################################################
-      FROM FROM registry.access.redhat.com/ubi9/openjdk-11-runtime:latest
+      FROM registry.access.redhat.com/ubi9/openjdk-11-runtime:latest
 
       #Arguments
       ARG PENTAHO_INSTALL=$HOME/pentaho-install
