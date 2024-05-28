@@ -20,6 +20,10 @@
       RUN curl ${PENTAHO_URL} -o $HOME/pdi-ce-${PDI_VERSION}.zip
       RUN cd $PENTAHO_INSTALL && jar -xvf $HOME/pdi-ce-${PDI_VERSION}.zip
 
+      # Make PDI runnable
+      RUN chmod 775 $PENTAHO_INSTALL/data-integration
+      RUN chmod 755 $PENTAHO_INSTALL/data-integration/*.sh
+
       ##################################################################################################
       # Second layer: Here is where we create the final image                                          #
       ##################################################################################################
@@ -47,9 +51,6 @@
 
       # Copy Pentaho PDI from layer install_unpack to this layer
       COPY --from=install_unpack ${PENTAHO_INSTALL}/data-integration/ ${KETTLE_HOME}/
-
-      RUN chmod 775 ${KETTLE_HOME}
-      RUN chmod 755 ${KETTLE_HOME}/*.sh
 
       # Start Carte Server
       RUN cd ${KETTLE_HOME}
