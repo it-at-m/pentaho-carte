@@ -41,7 +41,7 @@
       ENV KETTLE_HOME=${HOME}/data-integration
       ENV PATH=${KETTLE_HOME}:$PATH
 
-      # Create KETTLE_HOME directory and make it writeable
+      # Create PENTAHO_HOME directory and make it writable
       RUN mkdir ${KETTLE_HOME}
       RUN chmod 775 ${KETTLE_HOME}
 
@@ -54,4 +54,4 @@
       RUN chmod 755 ${KETTLE_HOME}/*.sh
 
       # Start Carte Server
-      CMD [${KETTLE_HOME}/carte.sh, ${HOSTNAME}, ${CARTE_PORT}]
+      CMD ${KETTLE_HOME}/carte.sh ${HOSTNAME} ${CARTE_PORT}
