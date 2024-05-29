@@ -45,6 +45,10 @@
       RUN mkdir ${PENTAHO_HOME}
       RUN chmod 775 ${PENTAHO_HOME}
 
+      # Create PENTAHO_HOME directory
+      RUN mkdir ${KETTLE_HOME}
+      RUN chmod 775 ${KETTLE_HOME}
+
       # Copy Pentaho PDI from layer install_unpack to this layer
       COPY --from=install_unpack --chmod=775 ${PENTAHO_INSTALL}/data-integration/ ${KETTLE_HOME}/
 
