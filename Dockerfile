@@ -14,11 +14,12 @@
 
       # Pentaho Directory
       RUN mkdir ${PENTAHO_INSTALL}
-      RUN chmod 775 ${PENTAHO_INSTALL}
+
+      WORKDIR ${PENTAHO_INSTALL}
 
       # Download PDI and extract it
       RUN curl ${PENTAHO_URL} -o $HOME/pdi-ce-${PDI_VERSION}.zip
-      RUN cd $PENTAHO_INSTALL && jar -xvf $HOME/pdi-ce-${PDI_VERSION}.zip
+      RUN jar -xvf $HOME/pdi-ce-${PDI_VERSION}.zip
 
       ##################################################################################################
       # Second layer: Here is where we create the final image                                          #
@@ -36,18 +37,15 @@
 
       # Environment settings
       ENV PENTAHO_JAVA_HOME=$JAVA_HOME
-      ENV PENTAHO_HOME=$HOME/pentaho
       ENV CARTE_PORT=8080
-      ENV KETTLE_HOME=${PENTAHO_HOME}/data-integration
+      ENV KETTLE_HOME=${HOME}/data-integration
       ENV PATH=${KETTLE_HOME}:$PATH
-
-      # Create PENTAHO_HOME directory
-      RUN mkdir ${PENTAHO_HOME}
-      RUN chmod 775 ${PENTAHO_HOME}
 
       # Create PENTAHO_HOME directory
       RUN mkdir ${KETTLE_HOME}
       RUN chmod 775 ${KETTLE_HOME}
+
+      WORKDIR ${KETTLE_HOME}
 
       # Copy Pentaho PDI from layer install_unpack to this layer
       COPY --from=install_unpack --chmod=775 ${PENTAHO_INSTALL}/data-integration/ ${KETTLE_HOME}/
@@ -56,5 +54,4 @@
       RUN chmod 755 ${KETTLE_HOME}/*.sh
 
       # Start Carte Server
-      RUN cd ${KETTLE_HOME}
       CMD ${KETTLE_HOME}/carte.sh ${HOSTNAME} ${CARTE_PORT}

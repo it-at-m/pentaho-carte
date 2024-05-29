@@ -3,13 +3,13 @@ name: Create and publish Docker image
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: "Branch to release from ?"
-        required: true
-        default: "main"
       release-tag:
         description: "Release tag ?"
         required: true
+      do_release:
+        description: "Create Github Release ? (true/false)"
+        required: true
+        default: "false"
 
 env:
   REGISTRY: ghcr.io
@@ -31,7 +31,6 @@ jobs:
       - name: Log in to the Container registry
         uses: docker/login-action@v3
         with:
-          ref: ${{ inputs.branch }}
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
