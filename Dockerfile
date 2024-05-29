@@ -54,4 +54,4 @@
       RUN chmod 755 ${KETTLE_HOME}/*.sh
 
       # Start Carte Server
-      CMD ["${KETTLE_HOME}/carte.sh", "${HOSTNAME}", "${CARTE_PORT}"]
+      CMD [${KETTLE_HOME}/carte.sh, ${HOSTNAME}, ${CARTE_PORT}]
