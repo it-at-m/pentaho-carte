@@ -31,9 +31,7 @@ Use Pentaho Carte Server's  [default user and password](https://pentaho-public.a
 
 ### Deploying on Kubernetes using a Helm chart
 
-We will provide a Helm Chart for *pentaho-carte* soon under [provided Helm chart][helm-chart-github].
-
-<!-- If you want to deploy pentaho-carte on a Kubernetes cluster, you can use the [provided Helm chart][helm-chart-github].-->
+If you want to deploy pentaho-carte on a Kubernetes cluster, you can use the [provided Helm chart][helm-chart-github].
 
 ### Configuration
 
