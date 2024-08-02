@@ -42,8 +42,7 @@
       ENV PATH=${KETTLE_HOME}:$PATH
 
       # Create PENTAHO_HOME directory and make it writable
-      RUN mkdir ${KETTLE_HOME}
-      RUN chmod 775 ${KETTLE_HOME}
+      RUN mkdir ${KETTLE_HOME} && chmod 775 ${KETTLE_HOME}
 
       WORKDIR ${KETTLE_HOME}
 
