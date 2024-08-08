@@ -3,13 +3,13 @@ name: Create and publish Docker image
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        description: "Branch to release from ?"
-        required: true
-        default: "main"
       release-tag:
         description: "Release tag ?"
         required: true
+      do_release:
+        description: "Create Github Release ? (true/false)"
+        required: true
+        default: "false"
 
 env:
   REGISTRY: ghcr.io
@@ -60,11 +60,12 @@ jobs:
 #          subject-digest: ${{ steps.push.outputs.digest }}
 #          push-to-registry: true
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.event.inputs.release-tag }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
+#      - name: Create GitHub Release
+#        id: create_release
+#        if: inputs.do_release == 'true'
+#        uses: softprops/action-gh-release@v2
+#        with:
+#          tag_name: ${{ github.event.inputs.release-tag }}
+#          draft: false
+#          prerelease: false
+#          generate_release_notes: true

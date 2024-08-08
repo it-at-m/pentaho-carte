@@ -29,7 +29,6 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v5
         with:
-#          context: ./pentaho-carte
           push: false
           # tags: itatm/pentaho-carte:${{ env.GITHUB_REF_NAME_SLUG }}
           tags: itatm/pentaho-carte:latest
